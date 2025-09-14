@@ -47,7 +47,7 @@ pipeline {
             steps{
                 script{
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh 'docker build -t bms:latest .'
+                        sh 'docker build -t bms:latest -f bookmyshow-app/Dockerfile .'
                         sh 'docker tag bms:latest abhishekrathor21/bms:latest'
                         sh 'docker push abhishekrathor21/bms:latest'
                     }
